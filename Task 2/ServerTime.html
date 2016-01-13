@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#Request").click(function () {
+
+                $("#myDiv").load("ServerTime.aspx", function (responseTxt, statusTxt, xhr) {
+
+                    if (statusTxt == "success") {
+                        $("#myDiv").html("" + responseTxt);
+                    } else {
+                        $("#myDiv").html("Error" + xhr.status + ": " + xhr.statusText);
+                    }
+
+
+                });
+
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <h2>ServerTime: </h2>
+    <input id="Request" type="button" value="Request Time"/>
+    <div id="myDiv"></div>
+</body>
+</html>
